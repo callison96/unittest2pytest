@@ -45,7 +45,7 @@ Usage
 To print a diff of changes that unittest2pytest will make against a
 particular source file or directory::
 
-    unittest2pytest source_folder
+    unittest2pytest -f self_assert source_folder
 
 To have those changes written to the files::
 
@@ -54,6 +54,9 @@ To have those changes written to the files::
 To have those changes written to another directory::
 
     unittest2pytest -w source_folder --output-dir /some/where/else
+
+You must specify a `-f` option (a fix option) otherwise all fixes will
+be applied and asserts will be reversed.
 
 By default, this will create backup files for each file that will be
 changed. You can add the `-n` option to not create the backups. Please
@@ -73,6 +76,7 @@ A list of the available fixers can be found with the following::
     Available transformations for the -f/--fix option:
     remove_class
     self_assert
+    reverse_self_assert
 
 
 Note: if your tests use the context managers ``with self.assertRaises`` or
